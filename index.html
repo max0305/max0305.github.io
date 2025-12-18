@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURAL LINK // VISUALIZER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="container">
+        <header>
+            <h1 class="glitch" data-text="JUN">JUN</h1>
+            <div class="sub-header">
+                <span>TARGET: <span id="filename">soyo</span></span>
+                <span id="score-display" style="display: none;">SCORE: 0</span>
+                <span class="status-light"></span>
+            </div>
+        </header>
+
+        <main>
+            <!-- 隱藏的原始 GIF 容器，用於 libgif 解析 -->
+            <div id="gif-source-container" style="display: none;">
+                <!-- 請將您的 gif 命名為 soyo.gif 並放入 gif 資料夾 -->
+                <img src="gif/soyo.gif" rel:animated_src="gif/soyo.gif" rel:auto_play="1" width="200" height="200" id="source-gif" />
+            </div>
+
+            <!-- ASCII 輸出區域 -->
+            <div class="ascii-wrapper" style="position: relative;">
+                <pre id="ascii-output"></pre>
+                <div id="game-layer"></div>
+                <div id="game-over-overlay" style="display: none;">
+                    <div class="game-over-content">
+                        <h2>SYSTEM FAILURE</h2>
+                        <p>FINAL SCORE: <span id="final-score">0</span></p>
+                        <button id="restart-btn" class="cyber-btn">REBOOT_SYSTEM</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>SIGNAL_SOURCE</label>
+                    <button id="next-btn" class="cyber-btn">NEXT_GIF >></button>
+                </div>
+                
+                <div class="control-group">
+                    <label>VISUAL_MODE</label>
+                    <button id="mode-btn" class="cyber-btn">ASCII</button>
+                </div>
+
+                <div class="control-group">
+                    <label>COLOR_PROFILE</label>
+                    <button id="color-btn" class="cyber-btn">GREEN</button>
+                </div>
+
+                <div class="control-group">
+                    <label>INTERFERENCE</label>
+                    <button id="glitch-btn" class="cyber-btn off">OFF</button>
+                </div>
+
+                <div class="control-group">
+                    <label>DEFENSE_SYSTEM</label>
+                    <button id="game-btn" class="cyber-btn">START</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Hey Siri, call my gf</p>
+        </footer>
+    </div>
+
+    <!-- 使用 libgif.js 來處理 GIF 幀 -->
+    <script src="https://cdn.jsdelivr.net/gh/buzzfeed/libgif-js@master/libgif.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
